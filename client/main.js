@@ -16,7 +16,11 @@ Template.hello.helpers({
 
 Template.hello.events({
   'click button'(event, instance) {
+    console.log('asdasd');
+    Meteor.call('testCall', function (err, response) {
+      instance.counter.set(instance.counter.get() + 1);
+    })
     // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
+    // instance.counter.set(instance.counter.get() + 1);
   },
 });
